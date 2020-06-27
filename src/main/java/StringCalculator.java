@@ -15,10 +15,6 @@ if (numbers.equals(""))
        if (numbers.startsWith("//")) 
 {
             int newLineIndex = numbers.indexOf('\n');
-            customDelimiter = "|" + numbers.substring(2, newLineIndex);
-            customDelimiter = customDelimiter.replace("[", "");
-            customDelimiter = customDelimiter.replace("]", "");
-            customDelimiter = customDelimiter.replace("*", "\\*");
             numbers = numbers.substring(newLineIndex + 1);
         }
 
@@ -40,6 +36,29 @@ int count = 0;
             throw new IllegalArgumentException("Negatives not allowed" + (negativeNumbers.size() > 1 ? (" " + String.join(",", negativeNumbers)) : ""));
         return count;
     }
+
+
+private String getCustomDelimiter(String numbers) 
+{
+        String delimiterString = numbers.substring(2, numbers.indexOf("\n"));
+        List<String> delimiters = new ArrayList<>();
+        if(delimiterString.contains("["))
+{
+            while(delimiterString.length() > 0)
+{
+                int cursor = delimiters.indexOf("[") + 1;
+                int endIndex = delimiterString.indexOf("]");
+                delimiters.add(delimiterString.substring(cursor+1, endIndex));
+                delimiterString = delimiterString.substring(endIndex + 1);
+            }
+        }
+else
+{
+            delimiters.add(delimiterString);
+        }
+        return "|" + String.join("|", delimiters).replace("*", "\\*").replace("%", "\\%");
+    }
+
 
     public int getCalledCount() {
         return addCalledCount;
