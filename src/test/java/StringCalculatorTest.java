@@ -61,6 +61,11 @@ public class StringCalculatorTest {
     }
 
 
+@Test
+    public void greaterThanThousandShouldIgnored() {
+        Assert.assertEquals(2, stringCalculator.add("2,1001"));
+    }
+
 
 }	}
 }
