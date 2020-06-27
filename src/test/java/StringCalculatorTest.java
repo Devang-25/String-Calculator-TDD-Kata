@@ -44,5 +44,17 @@ public class StringCalculatorTest {
         }
     }
 
+
+@Test
+    public void multipleNegativeNumberShouldThrowException() {
+        try {
+            stringCalculator.add("//;\n-1;3,-2");
+        } catch (IllegalArgumentException e) {
+            Assert.assertEquals("Negatives not allowed -1,-2", e.getMessage());
+        }
+    }
+
+
+
 }	}
 }
