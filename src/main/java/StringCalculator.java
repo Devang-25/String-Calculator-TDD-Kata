@@ -1,8 +1,9 @@
 public class StringCalculator 
 {
+int addCalledCount = 0;
     public int add(String numbers)
 {
-
+addCalledCount++;
 if (numbers.equals(""))
             return 0;
 
@@ -22,7 +23,13 @@ if (numbers.equals(""))
                negativeNumbers.add(v.trim());
             count += number;
         }
-        return count;
 
+ if (negativeNumbers.size() > 0)
+            throw new IllegalArgumentException("Negatives not allowed" + (negativeNumbers.size() > 1 ? (" " + String.join(",", negativeNumbers)) : ""));
+        return count;
+    }
+
+    public int getCalledCount() {
+        return addCalledCount;
     }
 }
