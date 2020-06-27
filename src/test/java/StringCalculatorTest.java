@@ -34,5 +34,15 @@ public class StringCalculatorTest {
         Assert.assertEquals(4, stringCalculator.add("//;\n1;3"));
     }
 
+
+@Test
+    public void negativeNumberShouldThrowException() {
+        try {
+            stringCalculator.add("//;\n-1;3");
+        } catch (IllegalArgumentException e) {
+            Assert.assertEquals("Negatives not allowed", e.getMessage());
+        }
+    }
+
 }	}
 }
