@@ -19,7 +19,7 @@ if (numbers.equals(""))
        {
 	int number = Integer.parseInt(v.trim());
             if (number < 0)
-                throw new IllegalArgumentException("Negatives not allowed");
+               negativeNumbers.add(v.trim());
             count += number;
         }
         return count;
