@@ -54,6 +54,12 @@ public class StringCalculatorTest {
         }
     }
 
+@Test
+    public void getAddCalledCount() {
+        stringCalculator.add("//;\n1;3");
+        Assert.assertEquals(1, stringCalculator.getCalledCount());
+    }
+
 
 
 }	}
