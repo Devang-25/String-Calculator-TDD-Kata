@@ -29,5 +29,10 @@ public class StringCalculatorTest {
         Assert.assertEquals(6, stringCalculator.add("1\n2,3"));
     }
 
+@Test
+    public void supportDifferentDelimiter() {
+        Assert.assertEquals(4, stringCalculator.add("//;\n1;3"));
+    }
+
 }	}
 }
