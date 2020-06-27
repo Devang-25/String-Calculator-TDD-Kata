@@ -21,6 +21,7 @@ if (numbers.equals(""))
 	int number = Integer.parseInt(v.trim());
             if (number < 0)
                negativeNumbers.add(v.trim());
+	 if (number <= 1000)
             count += number;
         }
 
